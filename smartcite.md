@@ -1,4 +1,4 @@
-# smartcite jar包构建、启动及论文解析
+# Smartcite jar package construction, startup, and paper parsing
 ```shell
 git checkout git@github.com:pengzh1/SmartCite.git
 cd SmartCite

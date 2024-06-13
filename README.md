@@ -1,24 +1,24 @@
 # kdd-2024 paper-source-tracing edgeknife团队工作概述
 
-我们做了很多不同方向的尝试，因此整体pipeline较为复杂，虽然其中大部分处理方法并没有带来明显的效果，但还是在下面列举出来以供参考
+We have made many attempts in different directions, so the  pipeline is  complex. Although most of the processing methods did not bring significant results, they are still listed below for reference
 
-以下pipeline中部分步骤耗时较长，其中部分中间产物和模型已存放到百度网盘,链接地址:
+Some of the steps in the following pipeline are time-consuming, and some of the intermediate products and models have been stored on the [cloud storage](https://jupyterg6mrhfonqbcs.app.featurize.cn/files/data.zip?_xsrf=2%7Cd99d61f9%7C361a5e85026090fd207bee3d40393da4%7C1718280108) (the faster Baidu cloud storage is still being uploaded, and the link will be updated after the upload is completed),
 
-我们所做的工作包括
-- 使用开源项目 [SmartCite](https://github.com/pengzh1/SmartCite),并修复其中部分问题，解析xml论文结构,详见[smartcite.md](smartcite.md)
-- 使用包含所有引用的句子、只包含单个引用的句子，训练了三个bert模型分数作为排序特征，详见[bert.py](bert.py) 、[bert-sig.py](bert-sig.py)、[bert-sigunion.py](bert-sigunion.py)
-- 使用pagerank算法，计算各引用的pagerank分数及排名，作为排序特征
-- 计算各个引用是否单独出现在某一句子中，作为排序特征
-- 使用 oagbert-v2-sim计算出引用和原文相似度score作为排序特征，simscore计算详见 [sim.sh](sim.sh)
-- 使用2层隐含层+L1正则化+BatchNormalization的DNN神经网络来预测最终分类结果
+The work we do includes
+-Using open-source project [SmartCite]（ https://github.com/pengzh1/SmartCite ）, and fix some bugs, parse the structure of the XML paper, see [smartcite. md](smartcite.md) for details
+-Three BERT model scores were trained as sorting features using sentences that contain all references or only a single reference, as detailed in [bert.py](bert.py), [bert-sig.py](bert-sig.py), and [bert-sigunion.py](bert-sigunion.py)
+-Using the page-rank algorithm, calculate the pagerank scores and rankings for each reference as sorting features
+-Calculate whether each reference appears separately in a sentence as a sorting feature
+-Use oagbert v2 sim to calculate the similarity score between the citation and the original text as the sorting feature. The calculation of simscore can be found in [sim.sh](sim.sh)
+-Using a DNN neural network with 2 hidden layers, L1 regularization, and BatchNormalization to predict the final classification results
 
 
 
-数据特征准备和训练推理过程如下，执行命令前请下载data文件并解压到data目录
+The process of preparing data features and training inference is as follows. Before executing the command, please download the data file and unzip it to the data directory
 ```shell
 pip install -r requirements.txt
-# 准备数据及特征
+# prepare data
 python date_prepare.py
-# dnn训练和推理
+# dnn train and reference
 python dnn.py
 ```
