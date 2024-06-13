@@ -1,4 +1,4 @@
-# kdd-2024 paper-source-tracing edgeknife团队工作概述
+# kdd-2024 paper-source-tracing edgeknife team work
 
 We have made many attempts in different directions, so the  pipeline is  complex. Although most of the processing methods did not bring significant results, they are still listed below for reference
 
