@@ -1,0 +1,13 @@
+beautifulsoup4==4.11.1
+cogdl==0.5.3
+fuzzywuzzy==0.18.0
+numpy==1.25.2
+scikit_learn==1.2.1
+tqdm==4.36.1
+transformers==4.22.2
+python-Levenshtein==0.20.9
+lxml==4.8.0
+scikeras==0.12.0
+scikit-networl==0.32.1
+numba==0.58.0
+tensorflow==2.13.0
