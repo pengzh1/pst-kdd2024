@@ -16,6 +16,7 @@ The work we do includes
 
 The process of preparing data features and training inference is as follows. Before executing the command, please download the data file and unzip it to the data directory
 ```shell
+# need python 3.9
 pip install -r requirements.txt
 # prepare data
 python date_prepare.py
