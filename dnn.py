@@ -362,7 +362,7 @@ def map_test(spec=-1):
         print(f'dnn map {np.mean(mat2):.4f}')
 
 
-def reference_test(all_data, dfx):
+def inference_test(all_data, dfx):
     otlen = len(dfx[dfx['label'] != -1])
     valid_data = all_data[otlen:]
     valid_label = all_label[otlen:]
@@ -399,4 +399,4 @@ ne = 20
 # train_model
 # create_fold_model(all_data,all_label,fold=5,clen=clen,epoch=ne)
 map_test(spec=5)
-reference_test(all_data, dfx)
+inference_test(all_data, dfx)
